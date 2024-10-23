@@ -60,7 +60,10 @@ def withdraw(balance):
             break
         return balance
 
-def
+def get_choice():
+    while True:
+        choice = input(" ")
+
 
 
 
