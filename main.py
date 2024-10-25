@@ -6,11 +6,13 @@
 # Data In: [menu choice (d,w,v,e)]
 # Data Out:  [What their current balance is, if they input an invalid input]
 # Credits: [Lecture note 18]
-# Display the purpose of the program ......
+# Display the purpose of the program: Function as an ATM
 
 # Constants
 starting_balance = 1000
 penalty_rate = 0.05
+
+# Main function with all other functions
 def atm():
     balance = starting_balance
     while True:
@@ -25,19 +27,19 @@ def atm():
             print("Thank you, have a nice day!")
             break
 
-
+# View balance Function
 def view_balance(balance):
     print(f"Your balance is {balance}")
 
-
+# Deposit Function
 def deposit(balance):
     while True:
         cash = input("How much money would you like to deposit? ")
         if not cash.isdigit():
-            print ("Invalid cash")
+            print ("Invalid cash") # Error Check for invalid input
             continue
         cash = int(cash)
-        if cash < 0:
+        if cash < 0: # Check for negative numbers
             print ("Invalid cash")
         else:
             balance += cash
@@ -49,7 +51,7 @@ def withdraw(balance):
     while True:
         cash = input("How much money would you like to withdraw? ")
         if not cash.isdigit():
-            print("Invalid cash amount. Please enter a positive number.")
+            print("Invalid cash amount. Please enter a positive number.") # Number Check
             continue  # Prompt again
         cash = int(cash)
         if cash < 0:
@@ -66,13 +68,14 @@ def withdraw(balance):
     return balance
 
 def get_choice():
-    while True:
+    while True: # Main Page
         choice = input("Please select an option: \t- (V)iew Balance\n\t- (D)eposit,\n\t- (W)ithdraw,\n\t- (E)xit:").strip().upper()
         if choice in ('V', 'D', 'W', 'E'):
             return choice
         else:
             print("Invalid Choice Please Enter: V, D, W, E ")
-atm()
+
+atm() # Run the function
 
 
 
